@@ -7,9 +7,9 @@ tags: [tech, product]
 
 # PHEV-first
 
-**Claim:** At long-dwell parking, many slow chargers should produce more electric miles per dollar than a few fast posts, and a moderate-battery PHEV is the vehicle that can use that pattern for ordinary days and the occasional long trip.
+**Claim:** At long-dwell parking, many slow chargers should produce more electric miles per dollar than a few fast posts, best used by moderate-battery PHEVs that cover ordinary days on electricity and occasional long trips on fuel.
 
-**Status:** ready · lab card · unfinished experiment
+**Status:** ready · test specified · lab card · unfinished experiment
 
 **Terms (once):** **PHEV** = plug-in hybrid electric vehicle (grid charge plus liquid-fuel range). **BEV** = battery-electric only. **L1 / L2 / DCFC** = Level-1 AC (about 1.4–1.9 kW; **established**), Level-2 AC (range 2.9–19.2 kW, typical about 6.6–7.2 kW; **established**), DC fast charge (about 50–350 kW). **Long-dwell** = parking where the car sits for hours (work, overnight, apartment lot, street, driveway). **UF** = utility factor (share of miles expected on electricity given a charge pattern). **NHTS** = National Household Travel Survey. **Stall coverage** = chargers relative to parking spaces, so parked cars can plug without hunting scarce posts. **PEF** = petroleum equivalency factor (CAFE credit math for dual-fueled vehicles) — incentive detail lives off this card.
 
@@ -33,6 +33,8 @@ Charging money often buys a few high-power stalls. Speed helps when the car is p
 When cars are parked for hours, access matters more than charging speed. Household vehicles are parked about 95% of the day (**established**), roughly six to ten hours at work and longer overnight (**working assumption**). That sit is an L1 / L2 finish problem for a moderate daily band, not a DC-fast problem. That lot rule may be useful even apart from the PHEV package: for battery-electric cars it is mostly about dwell coverage; for plug-in hybrids it is also about whether the cord gets used.
 
 Engines are efficient at steady highway speed and wasteful in stop-and-go. Right-size the battery for the stop-and-go day (streets, errands, the crawl), not to cover a freeway commute on electricity. The engine can take the highway. The scarce-battery question underneath: what pack size buys the most electrically driven *inefficient* miles per unit of battery material?
+
+**Serious rival:** cheap long-range battery-electric cars with dense home and fast charging, which drop the engine entirely. This card differs by sizing a smaller pack for the stop-and-go day and leaving the long trip to fuel, aiming for the most electric stop-and-go miles per unit of battery.
 
 ## 3. The proposal
 
