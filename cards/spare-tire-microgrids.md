@@ -50,7 +50,7 @@ Each district also tends to build its own one-off backup, which brings one-off p
 
 A backup is more dependable when most of it does useful work every day. A site solar array and a battery can carry controls, gates, remote monitoring (SCADA), lighting, and smaller pumps daily, which keeps the electrical side of the site running, monitored, and exercised. The battery also covers the 7–10 seconds before an engine takes load and helps start big motors, so gates and controls never see a dead gap. The engine is then a true reserve: fueled on site, tested under load on a schedule, and asked to carry the big pumps only when the grid is down for long.
 
-The earlier version of this idea called the engine a CHP unit. Engine rules point the other way for most of these sites. CHP pays when an engine runs thousands of hours and something next door uses the heat. A standby engine runs tens of hours a year, is limited to 100 hours of non-emergency use, and usually sits at a levee or well field with nothing nearby that needs heat. So the engine here is a generator. Heat recovery belongs only at wastewater plants, whose digesters need heat.
+Engine rules point away from CHP for most of these sites. CHP pays when an engine runs thousands of hours and something next door uses the heat. A standby engine runs tens of hours a year, is limited to 100 hours of non-emergency use, and usually sits at a levee or well field with nothing nearby that needs heat. So the engine here is a generator. Heat recovery belongs only at wastewater plants, whose digesters need heat.
 
 At a rarely run station, the battery and array sit mostly idle between storms. On dry days they can earn money doing grid work, then fill up and hold before forecast rain.
 

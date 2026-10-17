@@ -131,7 +131,7 @@ If treatment B wins on electric miles per dollar at long dwell but PHEV drivers 
 - **Car makers refuse dual hardware** — betting on battery-electric only; the PHEV premium never shrinks.
 - **The pack gets judged as a freeway battery** — stop-and-go sizing looks “too small” against commute myths (including one-way commute stats misread as daily driving).
 - **Cold weather or long suburb days** make an about-40-mile ordinary-day band feel tight without a higher pack or more reliable plugs.
-- **Politics** — “delay tactic” from one side; fuel-blend fights from the other; capability is not supply for any flex layer.
+- **Politics:** some critics call plug-in hybrids a delay on full electrification; others fight the fuel-blend rules; capability is not supply for any flex layer.
 - **The pattern arrives too late** — cheap long-range battery-electric cars and dense home charging show up first.
 
 What would make this wrong: unplugged cars, thin coverage, electric miles barely moving, or scarce high-power posts that leave most stalls dark.
