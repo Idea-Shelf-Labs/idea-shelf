@@ -11,5 +11,6 @@ A public lab for technology **mechanisms** — mostly deploying and mixing known
 - [`cards/plug-in-hybrid-trains.md`](cards/plug-in-hybrid-trains.md) — Plug-in hybrid trains (status: ready)
 - [`cards/spare-tire-microgrids.md`](cards/spare-tire-microgrids.md) — Spare-tire microgrids (status: ready)
 - [`cards/qattara-depression-lake.md`](cards/qattara-depression-lake.md) — Qattara depression lake (status: ready)
+- [`cards/tulare-smart-solar.md`](cards/tulare-smart-solar.md) — Tulare Smart Solar (status: ready)
 
 Site (Astro + Cloudflare Pages) comes next.
