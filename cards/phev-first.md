@@ -11,145 +11,186 @@ tags: [tech, product]
 
 **Status:** ready · test specified · lab card · unfinished experiment
 
-**Terms (once):** **PHEV** = plug-in hybrid electric vehicle (grid charge plus liquid-fuel range). **BEV** = battery-electric only. **L1 / L2 / DCFC** = Level-1 AC (about 1.4–1.9 kW; **established**), Level-2 AC (range 2.9–19.2 kW, typical about 6.6–7.2 kW; **established**), DC fast charge (about 50–350 kW). **Long-dwell** = parking where the car sits for hours (work, overnight, apartment lot, street, driveway). **UF** = utility factor (share of miles expected on electricity given a charge pattern). **NHTS** = National Household Travel Survey. **Stall coverage** = chargers relative to parking spaces, so parked cars can plug without hunting scarce posts. **PEF** = petroleum equivalency factor (CAFE credit math for dual-fueled vehicles) — incentive detail lives off this card.
+**Terms (once):** **PHEV** = plug-in hybrid: a grid-charged battery plus a liquid-fuel engine. **BEV** = battery-electric vehicle without an engine. **HEV** = non-plug-in hybrid. **L1 / L2 / DCFC** = Level-1 AC, Level-2 AC and DC fast charging. **Long-dwell** = parking for hours at work, overnight, apartments, streets or driveways. **Stall coverage** = working, accessible outlets relative to parking spaces. **Charge-depleting (CD)** = battery charge is being used; the engine can still run. **Charge-sustaining (CS)** = hybrid operation after the grid-charge allowance is used, not a physically empty battery. **Utility factor (UF)** = a defined share of driving attributed to battery use; label assumptions, engine-off distance and energy-based estimates are not interchangeable. **Gross / usable kWh** = total battery capacity / the portion made available to the driver. **Atkinson / Miller** = engine strategies that trade some specific output for efficiency; motors can supply acceleration torque.
 
 Working figures and unknowns (labeled):
 
-- **Ordinary-day band:** about **40 electric miles** as a sizing choice above the average day, not a measured mean and not a claim that it covers a whole year (**working assumption**). 2022 NHTS average daily vehicle-miles are about **39.7** per household (all of its vehicles; margin of error 2.6), about **21.8** per driver, and about **21.7** per vehicle-day (derived from published totals); 2017 was about **48.8** per household and about **25.8** per driver (**established**); AAA 2022 about **30.1** miles per driver-day; FHWA passenger-car annual about **10,881** miles → about **29.8** miles per calendar day. SAE J2841 utility-factor tables rest on **2001** NHTS; 2017 is the last solid distribution vintage. **Not found:** a published 2022 vehicle-day distribution under 30 / 40 / 50 miles. Average trip length (about **11.5** miles; work trips about **13.4**) is not the same as a day. An older GM line that “40 covers 78% of commuters” meant **one-way commute**, not daily driving. Early Chevy Volt fleets (INL, 2011–12, n=923) showed mean about **40.7** miles between charges, median **31.6**, and 81% at or under 40 — early adopters, not today’s fleet. Travel is right-skewed: in 2017, trips of 50 miles or more were about **2.5%** of trips but about **43%** of person-miles.
-- **Pack / wall energy for about 40 miles:** assume about **300 Wh/mi** mid-range (about 240–400 band) → about **12 kWh** usable pack / about **13–14 kWh** from the wall.
-- **Refill hours for that band:** L1 at 1.4 kW ≈ **9–10 hours**; L2 at 3.3–3.8 kW ≈ **3.5–4.5 hours**; at 6.6–7.2 kW ≈ **1.8–2.2 hours**; at 11.5 kW ≈ **1.2 hours**. DOE federal workplace guidance: L1 ≈ **5 miles of range per hour** (so about 40 in an 8-hour workday); L2 ≈ **25 miles per hour**. NREL session data (about 150,000 sessions) averaged about **15 kWh** delivered.
-- **Installed cost bands (published figures, excluding utility upgrades and demand charges):** L1 about **$200–600** (**not found** in a source checked); commercial L2 about **$4,400–10,600** per port, hardware plus install (NREL 2023; ICCT 2019 shows about **$3,880** workplace and **$5,440** public in 2019 dollars); DC fast 150 kW about **$112,200–196,200** per port and 350 kW and up about **$180,100–285,300** (NREL 2023; ICCT 2019 averages about **$81,818** per DC fast charger) (**established**). DC fast is about **9–45×** an L2 port depending on size; this is derived from ICCT 2019 and NREL 2023, no source states a ratio, and cost varies by site (**working assumption**). Managed sharing is about two vehicles per port in DOE guidance; more than two is practitioner assumption, not measured (**working assumption**). Demand charges are a large share of DCFC operating cost (directional, not a fixed formula here).
-- **What “enough” stalls means:** there is **no clean published scientific share** of parking spaces that counts as enough. Building-code floors (for example CALGreen-style: roughly 40% L2-ready / 10% with L2 equipment — versions move), practitioner ratios (about 1 L2 per 3–4 plug-in vehicles, or 1 per 8–12 employees), and DOE federal workplace guidance (L1 ≈ 1 per employee; L2 ≈ 1–2) are practice, not a measured optimum. A national stock ratio from NREL (about 40 L2 plugs per 1,000 plug-in vehicles) describes the fleet stock, not how to design one lot. Enough is not one charger per stall.
-- **Credits / PEF:** do **not** lock this card’s working math to vacated tax tables. Federal new-vehicle credits under 30D / 25E ended for vehicles acquired after **30 Sep 2025** (**established**; acquired means a binding contract plus a payment by that date). The separate charger credit under 30C ended for property placed in service after **30 Jun 2026** (**established**). PEF is **in flux**: the Eighth Circuit vacated the 2024 phase-down on 5 Sep 2025; DOE restored 82,049 Wh/gal on 8 Jan 2026; a DOE interim rule on 19 Feb 2026 removed the fuel content factor, so PEF is 12,307 Wh/gal (11,706 with a petroleum accessory), and DOE has said a further rule will follow (**established**). How EPA applies PEF to plug-in hybrid electric miles is **not found**. Incentive and PEF detail stays off this lab card.
+- **Working assumption — daily sizing:** start with **35–50 electric miles**, with **40 miles** as a test choice, not a measured optimum or a promise to cover most annual mileage. **Not found:** an independently checked current U.S. vehicle-day distribution establishing the fraction this target covers. Household or driver averages are not vehicle-day percentiles. [S1]
+- **Working assumption / derived — energy:** at **0.30 kWh/mile of battery output**, 40 miles uses **12 kWh usable energy**. Assumed **86–92% wall-to-battery efficiency** gives approximately **13–14 kWh at the wall**. Gross pack capacity is a different quantity.
+- **Derived — refill:** 13–14 wall kWh divided by **1.4 kW** is **9.3–10 hours**; at **3.3 kW**, about **3.9–4.2 hours**. An **eight-hour** stay at a steady 1.4 kW supplies **11.2 kWh wall energy**: most of this illustrative refill, not a guaranteed full forty-mile day. Actual power, temperature, accessories, vehicle acceptance and sharing affect delivery. **Published manufacturer example:** the June 2025 announcement for the 2026 Prius plug-in specifies roughly **11 hours at 120 V** or **4 hours on L2** under ideal conditions; this is not a universal PHEV recharge time. [S2]
+- **Published assumptions / derived — infrastructure costs:** NREL's **June 2023** model inputs, based on earlier studies, sum to commercial L2 **$4,400–10,600 per port** and **150-kW DC $112,200–196,200 per port**, equipment plus installation. Cross-range division gives about **11–45 times** for these particular bands, not all DC equipment or a whole-site productivity ratio. Utility-side upgrades, energy/demand charges, maintenance and some delay-related soft costs are excluded. These are historical assumptions, not current quotes. **Not found:** a defensible all-in commercial L1 price for the proposed site. [S3]
+- **Not found / working assumption — coverage:** no universal optimum share of wired stalls is established. Port count alone does not determine usable access or site peak; simultaneous draw, building loads, managed caps and departure needs matter.
+- **Published — incremental plug-in use:** European fuel-use observations and a manufacturer-specific North American charging sample show different outcomes. They inform the additional grid-electric benefit, not whether hybridization itself works. The Appendix preserves their populations, measurement definitions and vintages. [S4–S7]
+- **Published / derived / not found — battery allocation:** IEA's **2026** outlook reports **2025** average U.S. packs of about **90 kWh for BEVs** and less than **20 kWh for PHEVs**. This is capacity, not petroleum savings per kilogram. Dividing **60 kWh** among **four 15-kWh gross packs** equips four PHEVs rather than one 60-kWh BEV. With equal annual mileage, their engine-off electric distance exceeds the BEV's only if their average engine-off share exceeds **25%**: four times share must exceed one. This illustration ignores efficiency, chemistry, degradation, extra engines and cost. **Not found:** a matched demonstration that the package beats HEVs or BEVs per kilogram of each constrained material. [S8]
 
 ## 1. The problem
 
-Most cars travel relatively short distances on ordinary days and sit parked for hours — at work, overnight, apartment lots, street, or driveway. They still need long range sometimes. Right-skew travel makes the year different from the ordinary day: a thin tail of long trips carries a large share of person-miles.
+A car can sit beside a charger it cannot reach while other cars spend hours without an outlet. Speed helps a passing vehicle; reliable access helps a parked one. Workplaces, overnight parking, apartments, streets and driveways can all offer long stays, though each needs its own electrical and access plan.
 
-Charging money often buys a few high-power stalls. Speed helps when the car is passing through. Most of the week the car is sitting. Those long-dwell sites need enough ordinary outlets that plugging in is ordinary, not a hunt for scarce premium posts. Work, apartment, street, driveway: same rule. An apartment lot is the office-lot problem with a different landlord. This is not a story about people who cannot charge at all.
+Start with hybridization. Regenerative braking recovers some slowing energy; motor assistance, engine load management and stop/start can reduce combustion fuel use without an external charge. Gains depend on drivetrain design and duty cycle. A PHEV retains those functions after using its grid-charge allowance. The plug adds another benefit: substituting grid-electric travel for fuel-driven travel. [S12, S13]
+
+The proposal pairs that efficient hybrid with a modest battery and dependable charging. Actual prices and driver preferences determine when plugging in makes sense. Price response is a mechanism to test, not a universal behavior already established. An unplugged PHEV has not lost the mechanisms of hybridization, though its additional plug and battery may fail to earn their cost.
 
 ## 2. The insight
 
-When cars are parked for hours, access matters more than charging speed. Household vehicles are parked about 95% of the day (**established**), roughly six to ten hours at work and longer overnight (**working assumption**). That sit is an L1 / L2 finish problem for a moderate daily band, not a DC-fast problem. That lot rule may be useful even apart from the PHEV package: for battery-electric cars it is mostly about dwell coverage; for plug-in hybrids it is also about whether the cord gets used.
+At long dwell, spread useful access before buying speed vehicles cannot use. Match energy needed to available time, vehicle acceptance and the site's power budget. Pair that access with a moderate battery and fuel range for longer journeys.
 
-Engines are efficient at steady highway speed and wasteful in stop-and-go. Right-size the battery for the stop-and-go day (streets, errands, the crawl), not to cover a freeway commute on electricity. The engine can take the highway. The scarce-battery question underneath: what pack size buys the most electrically driven *inefficient* miles per unit of battery material?
+Under comparable chemistry, packaging and engineering, a smaller pack has less mass, material and battery cost than a larger one. That is not proof of a lighter or cheaper complete PHEV: its engine, fuel system and transmission also carry mass, manufacturing cost and maintenance. Compare complete cars serving the same need.
 
-**Serious rival:** cheap long-range battery-electric cars with dense home and fast charging, which drop the engine entirely. This card differs by sizing a smaller pack for the stop-and-go day and leaving the long trip to fuel, aiming for the most electric stop-and-go miles per unit of battery.
+Saving some battery charge for later stop-and-go travel on a known mixed route may save fuel. That is a working assumption to compare with charge-first operation, not a universal instruction to use the engine on highways. Electric highway driving can still be advantageous.
+
+**Serious rival:** an efficient HEV where the added plug does not pay or useful charging is absent; it already offers hybrid benefits with a smaller battery. A sensibly sized, affordable BEV can use the same long-dwell outlets and remove the combustion drivetrain. This card differs by keeping the hybrid baseline, adding a modest pack for ordinary-day electric miles, and letting complete cost, actual energy prices, range needs and driver preference decide the fit rather than assuming one vehicle class wins everywhere.
 
 ## 3. The proposal
 
-### Vehicle
+### Vehicle and powertrain
 
-- **Pack:** a moderate battery for ordinary local and stop-and-go travel — starting band about **35–50 electric miles** (about **40** as a sizing choice above the average day (**working assumption**), not a settled answer; raise as packs get cheaper). Do not size the pack as a freeway-commute battery.
-- **Electric where the pack beats the engine:** on a mixed trip, the car runs the engine for steady freeway cruising and saves the battery for stop-and-go, which the pack handles better than the engine. Saving charge needs a known route, from navigation or a learned commute; with no route known, the car uses charge first. It still must not drive on gas through town with a charged battery. That would make an unplugged plug-in hybrid a heavy gas car. Saving the battery this way lets a moderate pack cover longer mixed days, because those days usually include freeway miles. More fuel saved per unit of battery also means fewer imported cells and critical minerals per car, which serves energy independence and national security. The battery saving is a **working assumption** until real trip data scores it.
-- **Utility factor as the vehicle metric:** SAE J2841 assumes a full charge at the start of each day (**established**). Real-world utility factor may fall short of the label: the ICCT U.S. report (Dec 2022) says real-world electric drive share *may be* **26–56%** lower than the EPA label assumes (**published-contested**; California BAR data gives 41–56% and Fuelly data 26–39% for model year 2022 plug-in hybrids rated 8–42 miles). SAE paper 2024-01-2155, by Toyota authors, disputes the Fuelly gap and says the BAR data is biased and unrepresentative; only its abstract was read. In Europe (ICCT, June 2022), private cars show **45–49%** electric driving against **70–85%** assumed, and company cars **11–15%** (**established**). Habitual non-chargers dominate the gap. **Whether people actually plug in is the kill switch** for the PHEV-shaped version of this idea.
+Use the moderate range band as a starting test, not the only legitimate battery size. Choose an efficient charge-sustaining hybrid architecture. Atkinson or Miller operation, power-split/eCVT systems and competing hybrid designs are candidates, not mandatory specifications. Motors can assist acceleration while the engine operates efficiently. No new efficiency percentage follows merely from naming an architecture. [S12, S13]
+
+Provide separate electric-range, wall-energy and charge-sustaining MPG information. There is no proposed mandated MPG floor, vendor or compulsory charging habit. **Not found:** a measured effect showing labels alone change purchasing or charging enough to deliver the intended outcome.
+
+Licensing is one possible route, not a complete production powertrain. Toyota's **3 April 2019** announcement offered patent licenses through **end-2030** under negotiated terms, with technical support charged separately. It does not establish current uptake, a production contract or a guaranteed efficiency gain. [S9]
+
+Compare any route-aware charge-saving control with charge-first operation on matched journeys. Account for fuel, wall energy and engine-off distance, including heating, safety and battery-protection engine starts.
+
+### Market choice and cost per mile
+
+Compare the price the driver actually pays with actual route-specific efficiency:
+
+- Fuel-only CS energy cost per mile = gasoline price per gallon divided by actual CS miles per gallon.
+- Engine-off electric energy cost per mile = wall kWh per mile multiplied by the applicable price per kWh.
+- If using battery-output energy instead, divide it by charging efficiency first. Do not add losses again to wall-metered use.
+- For blended travel, add actual fuel and wall-electricity bills before dividing by miles. Allocate session, time-based and extra parking charges over miles served; include subscriptions where they change the choice.
+
+Cheap electricity can reward charging; expensive tariffs, little dwell or someone else paying for fuel can change the decision. Measure response rather than imposing a charging quota. These are marginal energy comparisons. For ownership, count purchase cost minus resale value, plus interest/fees, maintenance, insurance and charging equipment over the same period and mileage. Do not count both full purchase price and depreciation as separate capital costs.
 
 ### Parking lots
 
-At long-dwell sites, treat charging as stall coverage and power-per-stall matched to how long cars sit — not as a small set of premium posts:
+Provide working, reachable outlets, clear prices, billing and repairs. Use L1 where dwell suits the energy needed; use shared or managed L2 where it does not. Home charging remains an option where practical. Wiring alone is not evidence of changed behavior.
 
-1. **Power per stall** — L1 (about 1.4–1.9 kW) or shared L2 (typically 6.6–7.2 kW) (**established** charger ranges) sized so the ordinary-day band finishes inside the sit (workday or overnight). At about 6–10 hours of dwell at work, and longer overnight, L1 / L2 finishes the about-40-mile band (**working assumption**); DC fast buys unused speed plus a demand spike.
-2. **Stall coverage** — enough outlets that plugging is ordinary. Exact “enough” share of spaces is **unknown**; use pilots and practitioner bands, not a fake density claim. Where ports are shared, DOE guidance is about two vehicles per port; more than two is practitioner assumption, not measured (**working assumption**).
-3. **Site demand** — prefer many slow ports over few fast ports so peak building load stays lower for the same electric-mile delivery at long dwell. Cost bands above: DC fast is about 9–45× an L2 port (**working assumption**, derived; cost varies by site).
-4. **Home overnight** — when a plug exists at home, it is still the first refill. The lot thesis does not replace home charging; it covers the long sits away from home, and apartments that are office lots by another name.
+Compare infrastructure the enrolled cars can use. An AC-only PHEV cannot test a DC-only control arm. Use compatible AC comparisons; assess DC separately with compatible vehicles. Sharing can expand access without a feeder sized for every port's simultaneous nameplate draw, but actual delivery remains limited by the site, circuits, cables, phases, ports and onboard chargers. Report completion times and coincident demand: many slow ports do not automatically reduce peak load. [S16, S17]
 
-Must not change when the lot pattern is chosen: the claim that electric miles per infrastructure dollar rise with coverage at long dwell. If the site installs a handful of DC-fast posts and calls coverage done, the proposal has been abandoned.
+### Energy independence, preparedness and supply security
 
-### Resilience
+**Energy independence:** useful grid-electric miles can reduce ordinary petroleum demand and exposure to oil supply while retaining efficient fuel travel for longer journeys. This is diversification, not complete independence from fuel, imported resources or electricity supply. [S14]
 
-Keep liquid-fuel capability for long trips, emergencies, and gaps in charging. Road trips still work. Nobody waits on a perfect all-electric future to keep moving.
+**Disaster preparedness:** stored fuel and battery energy offer different transportation paths. Fuel can help when charging is unavailable; battery energy can support electric trips when fuel access is constrained, where the vehicle allows it. Starting energy differs from access to replenishment. Shared outages can disable charging and fuel pumps; roads and supplies can fail. A charged BEV also stores energy. Dual capability does not guarantee mobility or household backup power. [S14, S15]
 
-### Optional U.S. fuel-capability layer
+**National security:** less ordinary petroleum use and more than one energy route can reduce supply exposure. Optional compatibility with domestically producible liquid fuels can add a route only where compatible fuel and distribution exist. Capability is not supply, assured low-carbon fuel or guaranteed resilience. Feedstock, land, water, seasonal blends and distribution need their own assessment. Vehicle-to-home power requires model-specific equipment and verified ratings.
 
-Flex-fuel (E85) or other domestically producible liquids on these cars — even when the market value is low today — is an optional resilience add-on, not the center of the claim. The vehicle stays in the fleet a decade or more; you cannot retrofit a weekend if foreign oil gets tight. Pumps and stockpiles are a separate job. Corn is not the thesis. Capability is not the same as supply. Tradeoffs (land, water, food vs fuel, lifecycle, seasonal blend, availability in a disruption) stay open. Other countries may use different liquid backups.
+### Public support for useful electric travel
 
-### Money and credits
+**Working policy proposal:** public support should make room for efficient modest-battery PHEVs and useful charging access, alongside other ways to meet the same travel needs. The budget aim is broader reach: if proposed support and program cost per vehicle are lower, a fixed budget can offer support to more households. A smaller pack does not itself set the payment or establish more fuel displaced per public dollar.
 
-Incentive design, PEF / CAFE ladders, and credit windows live off this lab card’s working math. Vehicle credits 30D / 25E are dead after 30 Sep 2025 acquisitions; PEF tables are in flux after the 2024 phase-down was vacated. Do not treat a logarithmic pack credit or a vacated PEF ladder as settled inputs here.
+Compare packages on additional useful electric travel and petroleum displaced per public dollar, practical charging access, buyer cost and complete-vehicle cost. Use the efficient HEV and a right-sized BEV as serious alternatives; include charging access and other mobility investments where they serve the same need. Count useful longer-range capability too. Record actual fuel and wall-energy use, compare supported purchases with what would have happened without support, and verify performance before claiming a national result. Drivers retain the choice between fuel and electricity.
+
+A candidate first-40-electric-mile cap and a continuous logarithmic battery credit are different, unselected designs. Payment per kWh, payment per rated electric mile, flat support, eligibility including BEVs or HEVs, and any link to measured use remain open. No rate, current-law entitlement, regulatory multiplier or current funding allocation is assumed. The support proposal does not establish 40 miles as an optimum.
 
 ## 4. Why this
 
-Some drivers are excellent battery-electric candidates. Others travel long distances often, or park where a handful of fast posts will not cover the stalls. A transition can use different pack sizes and drivetrains for different use cases.
+The attraction is an efficient hybrid, a smaller pack burden, useful charging during ordinary parking and the option to buy the cheaper energy per mile. Liquid fuel preserves another route for long trips or charging gaps. Established hybrid mechanisms do not depend on external charging; additional grid-electric mileage does.
 
-The package is three pieces, not one slogan: (1) many slow chargers at long dwell, (2) a moderate pack for stop-and-go ordinary days, and (3) liquid range for the thin long-trip tail. Make-or-break for the PHEV-shaped version is **plug-in frequency and realized utility factor**, not hardware on the lot alone. The lot pattern can still be right for battery-electric cars even if plug-in hybrids fail to plug in — score them separately. The pack size, charger ranges, and cost ratios here are working assumptions or published-contested figures; the thing to measure is plug-in frequency.
+**Published product comparison, not a measured ownership result:** June 2025 announcements for model-year 2026 list the Prius plug-in SE at **$33,775 base MSRP**, a **13.6-kWh** battery, **44-mile** manufacturer-estimated electric range and up to **52 MPG** combined hybrid operation. The Prius HEV LE starts at **$28,550** and up to **57 MPG** combined. The **$5,225** difference is derived from base MSRPs, not matched-equipment transaction prices; both exclude processing/handling. These are dated specifications/estimates, not inventory or observed owner MPG. An owner who rarely charges still needs to compare the plug-in premium and fuel-mode use with the HEV. [S2, S10]
+
+**Counterevidence:** a July 2025 EU lifecycle model estimates **163 g CO2e/km** for PHEVs, **63 for BEVs** and **188 for HEVs**, for medium-segment cars sold in 2025 using modeled lifetime use and a projected **2025–2044 EU electricity mix**. It strongly favors BEVs per vehicle on emissions; it does not test this fixed-battery-budget proposal or measure U.S. lifetimes. The package is not established as inherently cleaner or cheaper than BEVs. [S11]
+
+Battery chemistry also matters: a smaller pack does not automatically save every constrained mineral compared with a larger pack of another chemistry. LFP avoids nickel and cobalt but still uses other materials and has supply-chain exposure. Capacity ratios alone are not mineral-saving ratios. [S8]
 
 ## 5. How you'd know
 
-**Vehicle**
+Score three comparisons separately: hybrid versus a comparable non-hybrid; PHEV versus HEV for the extra plug/battery; and complete PHEV versus BEV ownership. A good charging-lot result proves none of those vehicle comparisons by itself.
 
-- Share of days plugged in
-- Electric miles / total miles (realized utility factor)
-- Gasoline gallons per 100 miles
-- Gas burned while usable charge (and a cord) remained
-- Battery utilization
+- **Vehicle use:** actual fuel and wall energy, engine-off electric distance/total distance, CD distance separately, charging events/driving days, CS MPG and battery throughput. Separate private/company users, home access, routes, weather and vehicle types. Charging frequency is not electric-mile share; fuel with charge remaining can reflect rational prices, heating or control needs.
+- **Access and power:** working outlets, usable opportunities, faults, conflicts, dwell, refill completion, feeder allocation and actual coincident site demand. A blocked or broken port is not useful access.
+- **Cost:** dated bids/invoices for equipment, wiring, utility work, software, maintenance, energy and demand charges. Compare incremental electric travel per incremental all-in infrastructure dollar over the same horizon, alongside gallons displaced.
+- **Allocation and support:** additional travel/fuel displacement per public dollar, gross battery kWh and, with a bill of materials, kilograms of each named material. Include extra engines, full vehicle costs, manufacturing and electricity supply when claiming lifecycle benefit. Supported sales alone do not establish additional purchases or displacement.
 
-**Lots**
-
-- Chargers per parking space (stall coverage)
-- Sessions per charger; share of parked cars that can charge without competing for a few posts
-- Average charging power and peak site demand
-- Installation cost per parking space served (stay inside the published cost bands above; do not invent a dollars-per-stall number)
-
-**System**
-
-Electric miles delivered per dollar of infrastructure and vehicle support — and, where possible, per kilogram of battery and per unit of peak grid capacity.
-
-Units sold are a weaker number if they do not tell you whether the battery got used.
+Record who pays, the actual fuel-versus-wall price difference, what the driver chose and whether access prevented the cheaper choice. Continued fuel use when electricity is dearer can be rational, not failure of hybridization.
 
 ## 6. First test
 
-One office lot or city fleet. People who can charge at home still do. Log charging and fuel for **90 days**.
+Start with a **90-day logged pilot — working test duration** at comparable long-dwell sites or randomized groups within a site. Record a baseline and stratify home access, ownership, route and vehicle; compare tariffs, eligibility and access hours.
 
-Compare two treatments on similar sites or split lots:
+- **A:** fewer compatible AC outlets with higher available power per outlet.
+- **B:** more lower-power or managed AC outlets within a comparable total infrastructure budget.
 
-- **A:** few higher-power chargers
-- **B:** many low-power chargers (L1 / shared L2 matched to dwell)
+Use actual bids and a common cost horizon. Define outcomes and missing-data treatment before collecting results. Compare useful electric distance per dollar, gallons displaced, access, completion and coincident peak. Include compatible BEVs to test whether the outlet pattern works independently of the PHEV proposal, and efficient HEVs for matched fuel/cost comparisons. A DC arm belongs only in a compatible population.
 
-Compare electric miles, access, install cost (using the bands above), peak demand, conflicts, utilization, and realized utility factor.
-
-**Win:** a high share of ordinary-day miles on electricity; most stalls can plug in; little competition for scarce posts; far fewer fuel stops — and a clear read on which charger pattern buys more electric miles per dollar.
-
-**Alongside (not blocking):** keep the national ordinary-day band honest against the latest NHTS means; do not invent a 2022 day-length distribution that was not published.
-
-If treatment B wins on electric miles per dollar at long dwell but PHEV drivers still do not plug in, the **lot rule** can survive as a battery-electric / dwell finding while the **PHEV-shaped package** fails. Score that split explicitly.
+Observe price-led choices without a compulsory charging quota. Test route-aware versus charge-first control separately. The pilot can test feasibility and local effects; seasonal follow-up and a larger sample are needed before annual or national conclusions. If the plug does not earn its cost, the HEV may win; if a BEV meets the same need at lower complete cost, that is a valid result.
 
 ## 7. Open questions
 
-- Exact working electric-mile band from current U.S. travel data (means versus a still-missing day-length distribution) — and how fast it should rise?
-- What stall coverage counts as “enough” when science has no clean percentage?
-- Power-per-stall schedule to refill about 40 electric miles in ordinary sits across work, overnight, and street parking?
-- What actually raises plug-in rates (habit, software, deposit, fleet rules, a stall you can count on)?
-- Who runs the first logged A/B lot?
-- Optional fuel layer: put flex capability on the cars, grow supply, both, or defer?
-- Off-card: which credit windows remain open, and what PEF rewrite DOE issues in 2026 — verify before any policy memo treats them as live.
+- Which modern vehicle-day distribution and seasonal routes justify the starting pack band?
+- Who plugs in when prices and access favor it, and how do private/fleet users differ?
+- Does route-aware control outperform charge-first operation on matched journeys?
+- Which local all-in bids, feeder constraints and car acceptance limits govern usable access?
+- Does allocation survive chemistry-specific materials, extra engines and equal-budget comparisons?
+- Do labels alone produce a useful change in purchasing or charging?
+- Which disruption scenarios benefit from dual stores after allowing for pumps, roads and starting charge/fuel?
+- Which support design, payment amount and eligibility best serve additional useful travel and petroleum displacement? The capped-range and logarithmic proposals remain unresolved.
 
 ## 8. Why it might not work
 
-- **The rules score the wrong thing** — today’s utility-factor rules count only electric miles, so a car that saves charge on purpose for stop-and-go can look worse on paper even if it burns less fuel. The fix is to score fuel burned per mile, not electric miles alone.
-- **People don’t plug in** — real utility factor stays far below the label; gas use stays high; the PHEV-shaped version dies even if the lot is wired.
-- **Lots aren’t free power** — panels, landlords, and billing turn “enough for everyone” into a mega-project.
-- **Coverage gets watered down** — a handful of chargers labeled as done; scarce posts bring back the hunt.
-- **DC fast is sold as the long-dwell answer** — unused speed plus demand charges wipe the dollars-per-electric-mile case.
-- **Car makers refuse dual hardware** — betting on battery-electric only; the PHEV premium never shrinks.
-- **The pack gets judged as a freeway battery** — stop-and-go sizing looks “too small” against commute myths (including one-way commute stats misread as daily driving).
-- **Cold weather or long suburb days** make an about-40-mile ordinary-day band feel tight without a higher pack or more reliable plugs.
-- **Politics:** some critics call plug-in hybrids a delay on full electrification; others fight the fuel-blend rules; capability is not supply for any flex layer.
-- **The pattern arrives too late** — cheap long-range battery-electric cars and dense home charging show up first.
+- The additional plug/battery does not earn enough useful service, or a favorable energy price fails to attract use.
+- Heating, power demand and control strategy produce fuel use during battery depletion.
+- Wiring, utility work, billing and repairs make access expensive or unreliable.
+- Shared power, short dwell or cold prevent the intended replenishment; simultaneous demand erases an assumed peak advantage.
+- An efficient HEV or sensibly sized BEV meets the same need at lower complete cost or impact.
+- A second energy capability lacks available supply, or the same disruption blocks both routes.
+- Public support pays for purchases that would have happened anyway, or lower-cost awards do not produce greater additional benefit per dollar.
 
-What would make this wrong: unplugged cars, thin coverage, electric miles barely moving, or scarce high-power posts that leave most stalls dark.
+These outcomes test the incremental plug, pack, access and support proposal; they do not undo the established hybrid mechanisms.
 
 ## 9. Stress-test
 
-**“About 40 covers ordinary life / the year.”** 2022 NHTS means do not show 40 per vehicle (about 22 per vehicle-day); 40 is a sizing choice above the mean (**working assumption**), and they do not publish a vehicle-day distribution under 30 / 40 / 50, and right-skew long trips carry a large share of person-miles. Utility-factor tables on 2001 NHTS and early-adopter Volt logs are not a modern fleet year-cover proof. Keep “ordinary day”; drop “covers the year” until a day-length distribution exists.
+**“Forty miles covers ordinary life.”** It is a design target, not a measured percentile or annual-coverage promise. Household, driver, vehicle-day and annual denominators cannot be swapped. [S1]
 
-**“Many slow always beats few fast.”** Only at long dwell with a band that finishes inside the sit. Pass-through and en-route sites are a different product. If the A/B lot shows DC fast delivering more electric miles per dollar at about 6–10 hour dwell inside the cost bands above, the lot half of the claim fails.
+**“No charging means no hybrid benefit.”** Hybrid mechanisms do not require an external charge. Charging is needed for the extra grid-electric service, whose realized use must be scored separately. [S13]
 
-**“Enough stalls.”** No clean scientific enough-percentage was found. Building-code floors and practitioner ratios are policy and practice, not a measured optimum. Claiming a percentage here would be invention. Pilots must report coverage and access conflicts, not assert a magic density.
+**“Drivers always choose the cheaper source.”** Price response is intended, not universal. Actual route costs, who pays, access and convenience belong in the test.
 
-**“PHEV-first rides on the lot.”** The lot rule can be right for battery-electric dwell and still fail for plug-in hybrids if habitual non-charging kills utility factor. Plug-in reality is the kill switch for the vehicle half. Score lot electric-miles per dollar and PHEV realized utility factor as separate pass / fail.
+**“Battery depletion means engine-off driving.”** CD can include fuel use. Keep engine-off distance, CD distance, energy share and weighting definitions distinct; fuel-only consumption is not total energy or MPGe. [S4]
 
-**“Credits / PEF make the math.”** Vehicle credits 30D / 25E are dead for acquisitions after 30 Sep 2025; the 2024 PEF phase-down was vacated; DOE is rewriting. Any card that treats a stale PEF ladder or a dead vehicle credit as a live working figure is wrong on dates. Keep incentive math off this card and mark it in flux.
+**“A small pack makes the whole car lighter and cheaper.”** The pack saving is conditional on comparable engineering; the combustion drivetrain still counts. A battery-allocation illustration is not a demonstrated national oil saving.
 
-**“Flex-fuel is required.”** It is an optional U.S. resilience layer. The claim stands or falls on long-dwell many-slow plus moderate-pack ordinary-day electrification. Capability without pumps is theater.
+**“Many slow always wins.”** Only compare where dwell and acceptance suit the service. Fast charging remains useful en route and for quick turnaround. Reject the lot hypothesis if compatible higher-power infrastructure wins on useful electric travel per all-in dollar.
 
-Wrong in one line: the first logged lot still concentrates spend in a few fast posts, most stalls stay dark, and plug-in hybrids burn gas with charge left — or the card invents a travel distribution, stall percentage, or PEF ladder that the sources do not support.
+**“A budget cap settles the support case.”** A smaller pack does not determine the award amount or cause additional travel. Compare what the spending changes, including alternatives and useful longer range, before selecting a design.
+
+**Verdict:** hybrid mechanisms are established; the best pack size, price response and added value of plug/access/support are comparisons to score. The Claim's “best used by” is a comparative proposal, not a demonstrated universal winner.
+
+## Appendix: Sources
+
+### Observed incremental plug-in use
+
+**Published:** a **February 2026** European analysis uses OBFCM records from **2021–2023**. Its table 3 covers about **981,000 PHEVs**: vehicle-mean fuel consumption **5.89 L/100 km** versus **1.53 L/100 km WLTP**, with mean CD-mode fuel consumption **2.82 L/100 km**. These are fuel-only figures, not total energy or lifecycle emissions, a U.S. estimate or a test of the proposed lot. [S4]
+
+The same table's **km-weighted** CD distance is **39.0%**, engine-off CD distance about **27.4%**, and energy-based share **31.0%**. Its **6.12 L/100 km** km-weighted fuel mean differs from the **5.89** vehicle mean. Dividing incompatible weightings would manufacture a misleading comparison. [S4]
+
+**Published, manufacturer-specific:** Toyota's **20 May 2026** summary covers more than **6,000** U.S./Canadian RAV4 Prime and Lexus NX PHEVs, model years **2021–2024**. It estimates charging on about **seven in ten driving days** for Toyota and **eight–nine in ten** for Lexus; **9%** and **4%**, respectively, rarely charge. Those are frequency estimates, not electric-mile shares. Exact observation dates and ownership mix are not verified from the summary. [S5]
+
+**Published abstract only / not found:** the related SAE paper, published **7 April 2026**, describes one full calendar year for hundreds of North American vehicles. Its public abstract does not disclose the observation year; full sampling methods are not independently checked. Do not equate its sample with the manufacturer's larger summary sample. [S6]
+
+**Published historical comparison:** a **2022** ICCT/Fraunhofer study of about **9,000** European PHEVs estimates electric-driving shares of **45–49% for private cars** and **11–15% for company cars**. Its mixed older datasets are not 2026 measurements or interchangeable with North American charging-day frequency. [S7]
+
+These studies constrain the additional electric service; they do not test whether regenerative braking or hybrid engine management works.
+
+### Source register and vintages
+
+- **S1 — published survey:** FHWA, *2022 NHTS Summary of Travel Trends*, **January 2024**; travel collected **January 2022–January 2023**. Means do not establish the missing current vehicle-day percentile. [Report](https://nhts.ornl.gov/assets/2022/pub/2022_NHTS_Summary_Travel_Trends.pdf).
+- **S2 — published manufacturer announcement:** Toyota, **16 June 2025**, model-year **2026 Prius plug-in** specifications and estimates; launch MSRP, not transaction quotes or measured owner use. [Announcement](https://pressroom.toyota.com/toyota-prius-plug-in-hybrid-gets-edgier-with-new-nightshade-edition/).
+- **S3 — published model inputs:** NREL, *The 2030 National Charging Network*, **June 2023**, §2.3.4/table 5, printed p. 33; earlier historical studies underlie its cost assumptions. [Report](https://docs.nlr.gov/docs/fy23osti/85654.pdf).
+- **S4 — published observational analysis:** Fraunhofer ISI / Öko-Institut / ifeu, *Regulatory adjustments for plug-in hybrid vehicles in Europe*, **18 February 2026**; §§2.1–2.2/table 3, reporting/registration records **2021–2023**, deduplicated to each vehicle's latest record. [Report](https://publica-rest.fraunhofer.de/server/api/core/bitstreams/ac662473-acb6-462a-900d-b7066eb460c8/content).
+- **S5 — published manufacturer summary:** Toyota, *Do Plug-In Hybrid Owners Actually Plug In?*, **20 May 2026**, model years **2021–2024**, exact observation dates not specified; charging inferred rather than a direct electric-mile-share finding. [Summary](https://pressroom.toyota.com/do-plug-in-hybrid-owners-actually-plug-in/).
+- **S6 — published abstract only:** SAE **2026-01-0429**, **7 April 2026**; a full calendar year, observation year undisclosed in the public abstract. [Abstract](https://saemobilus.sae.org/papers/identifying-patterns-real-world-charging-frequency-a-sample-plug-hybrid-electric-vehicles-north-america-2026-01-0429).
+- **S7 — published historical observational comparison:** ICCT/Fraunhofer, *Real-world usage of plug-in hybrid vehicles in Europe: A 2022 update*, **2022 publication**, heterogeneous earlier private/company datasets. [Registry and abstract](https://publica.fraunhofer.de/entities/publication/f7607ab2-d7d2-42dd-80fe-2cd229fa1b51).
+- **S8 — published market analysis:** IEA, *Global EV Outlook 2026*, battery chapter; **2026 publication**, **2025** deployment and pack-capacity observations. Chemistry and capacity do not establish matched material or fiscal efficiency. [Chapter](https://www.iea.org/reports/global-ev-outlook-2026/electric-vehicle-batteries).
+- **S9 — historical manufacturer offer:** Toyota, **3 April 2019**, patent licensing and separately charged technical support; stated offer through end-2030, not a verified current supply contract. [Announcement](https://global.toyota/en/newsroom/corporate/27512455.html).
+- **S10 — manufacturer announcement:** Toyota, **16 June 2025**, model-year **2026 Prius HEV** launch prices and estimates. [Announcement](https://pressroom.toyota.com/electrified-trailblazer-the-toyota-prius-celebrates-25-years-in-the-u-s/).
+- **S11 — lifecycle model:** ICCT, **8 July 2025**, EU medium-segment 2025 cars and projected lifetime energy mixes; not measured lifetime totals. [Report](https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/).
+- **S12 — mechanism explanation:** Toyota UK, **14 January 2015**, updated **26 July 2024**; simulated Atkinson operation and motor assistance, not proof that a named cycle is necessary. [Explanation](https://mag.toyota.co.uk/toyota-use-atkinson-cycle-engines/).
+- **S13 — established mechanisms:** DOE Alternative Fuels Data Center and DOE/EPA, undated engineering guidance; no universal percentage gain implied. [Hybrid explanation](https://afdc.energy.gov/vehicles/electric-basics-hev) · [Mechanisms](https://www.fueleconomy.gov/feg/hybridtech.shtml).
+- **S14 — energy diversification explanation:** DOE AFDC, *Electric Vehicle Benefits and Considerations*, undated guidance; energy-security and infrastructure-availability sections. Diversification is not a measured vehicle-class resilience guarantee. [Explanation](https://afdc.energy.gov/fuels/electricity-benefits).
+- **S15 — historical supply-dependency explanation:** EIA, *Weather and other events can cause disruptions to gasoline infrastructure and supply*, **1 February 2013**; electricity dependencies across refining, distribution and retail, not a new outage measurement. [Explanation](https://www.eia.gov/TodayinEnergy/detail.php?id=9811).
+- **S16 — manufacturer mechanism guidance:** MENNEKES, *Wallboxes and charging columns with load management*, undated; dynamic building-load measurement and phase-aware current allocation, not guaranteed utilization or optimal completion. [Explanation](https://www.mennekes.org/emobility/products/load-balancing/).
+- **S17 — infrastructure planning guidance:** DOE AFDC, *Workplace Charging for Electric Vehicles*, undated; access, vehicle needs, equipment, pricing and ongoing management. [Guidance](https://afdc.energy.gov/fuels/electricity-charging-workplace).
